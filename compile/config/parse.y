@@ -5,6 +5,17 @@ extern int   currtname;
 extern int   currdname;
 %}
 
+%{
+extern int   yylex();
+extern int   mktype();
+extern int   cktname();
+extern int   lookup();
+extern int   newattr();
+extern int   mkdev();
+extern int   ckdname();
+extern int   yyerror();
+%}
+
 /* Token semantic values */
 %union {
 	int intval;
