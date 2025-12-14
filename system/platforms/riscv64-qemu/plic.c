@@ -13,7 +13,7 @@
 #include <thread.h>
 
 extern int resdefer;
-void* plic_base = NULL;
+void* plic_base = (void*) 0x0c000000L;
 
 // riscv PLIC supports 128 interrupts starting from 1,
 // IRQ ID 0 is unused, so we'll use irq 0 for handling timer interrupts
@@ -46,7 +46,7 @@ void plic_init(void) {
     // priority registers are 32 bit
     for (i = 1; i <= 128; i++) {
 	// highest priority for all
-	*((volatile uint32_t*)(PLIC_IRQ_PRI  + i)) = 0x07;
+	*((volatile uint32_t*)(PLIC_IRQ_PRI  + (i * 4))) = 0x07;
     }
     // interrupts with priority > than threshold will trigger
     *((volatile uint32_t*)PLIC_IRQ_THRESHOLD)=0x0;
