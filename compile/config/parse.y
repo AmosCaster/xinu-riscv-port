@@ -7,13 +7,13 @@ extern int   currdname;
 
 %{
 extern int   yylex();
-extern int   mktype();
-extern int   cktname();
-extern int   lookup();
-extern int   newattr();
-extern int   mkdev();
-extern int   ckdname();
-extern int   yyerror();
+extern int   mktype(int);
+extern int   cktname(int);
+extern int   lookup(const char *);
+extern int   newattr(int, int);
+extern int   mkdev(int, int, int);
+extern int   ckdname(int);
+extern int   yyerror(const char *);
 %}
 
 /* Token semantic values */
