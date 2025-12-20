@@ -29,8 +29,7 @@ SECTIONS {
         _etext = .;
     }
 
-    /* align r/w section to next 2mb */
-    . = ALIGN(1 << 21);
+    . = ALIGN(64);
 
     .data : {
         *(.data .data.*)
